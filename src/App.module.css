@@ -18,4 +18,6 @@
     background-color: rgb(178, 243, 245);
     padding: 10px 0;
     margin: 10px 0;
+    display: flex;
+    
 }

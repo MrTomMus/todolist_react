@@ -8,7 +8,11 @@ function App() {
 
   let arrTask = arr.map((e, id) => {
     return (
-      <div className={classes.task}>{id+1} {e}</div>
+      <div key={id} className={classes.task}>
+        <div>{id+1} {e}</div>
+        <button onClick={() => setTask(arr.filter((elem, index) => index !== id ? elem : console.log('test')))}>Удалить</button>
+      </div>
+      
     ) 
   })
 
