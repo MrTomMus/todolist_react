@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 function App() {
 
-  let [arr, setTask] = useState(['test']);
+  let [arr, setTask] = useState([]);
   let [str, setStr] = useState('');
 
   
@@ -33,7 +33,8 @@ function App() {
   return (
     <div className={classes.wrapper}>
         <h1 className={classes.title}>Задания</h1>
-        <input className={classes.exercise} type='text' value={str} onChange={(event) => setStr(event.currentTarget.value)} onKeyDown={(event) => enterPress(event)}/>
+        <h1>Количество заданий {arr.length}</h1>
+        <input placeholder='Введите задание' className={classes.exercise} type='text' value={str} onChange={(event) => setStr(event.currentTarget.value)} onKeyDown={(event) => enterPress(event)}/>
         <button className={classes.btn} onClick={() => clearStr(str)}>Создать задание</button>
         {arrTask}
     </div>
