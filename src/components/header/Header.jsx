@@ -5,8 +5,15 @@ const Header = (props) => {
    
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
-            props.setTopic([...props.topic, props.strHeader])
-            props.setStrHeader('');
+            if (/[a-zа-яё]/i.test(event.currentTarget.value)) {
+                props.setTopic([...props.topic, props.strHeader])
+                props.setStrHeader('');
+                event.currentTarget.style.border = 'none';
+            }else {
+                event.currentTarget.style.border = 'solid';
+                event.currentTarget.style.borderColor = 'red';
+            }
+            
         }
     }
 
