@@ -33,15 +33,6 @@
     word-wrap: break-word;
 }
 
-.task__input {
-    width: 200px;
-    border: none;
-    outline: none;
-    border-radius: 50px;
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-}
 
 .task__button {
     margin: 10px 0;

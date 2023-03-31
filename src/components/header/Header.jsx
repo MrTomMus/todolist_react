@@ -2,10 +2,10 @@ import React from 'react';
 import classes from '../header/Header.module.css';
 
 const Header = (props) => {
-   
+   // Функция pressEnter которую ты сказал нужно над ретерном и так над ретерном
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
-            if (/[a-zа-яё]/i.test(event.currentTarget.value)) {
+            if (/[a-zа-яё0-9]/i.test(event.currentTarget.value)) {
                 props.setTopic([...props.topic, props.strHeader])
                 props.setStrHeader('');
                 event.currentTarget.style.border = 'none';
