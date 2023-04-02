@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import classes from "../taks/Task.module.css";
 
 let Task = (props) => {
-
+    console.log(props)
     let [str, setStr] = useState('');
-    let [task, setTask] = useState([]);
+    
     
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
             if (/[a-zа-яё0-9]/i.test(event.currentTarget.value)) {
-                setTask([...task, str])
+                props.setTopic([...props.tasks, str])
                 setStr('');
                 event.currentTarget.style.border = 'none';
             }else {
@@ -19,8 +19,8 @@ let Task = (props) => {
             
         }
     }
-
-    let newTask = task.map((e, id) => <li key={id}>{e}</li>)
+   
+    // let newTask = props.topics.tasks.map((e, index) => <li key={index}>{e}</li>)
 
     return (
         <div>
@@ -34,7 +34,7 @@ let Task = (props) => {
                        />
                 <div className={classes.task__tasks}>
                     <ol>
-                        {newTask}
+                        {/* {newTask} */}
                     </ol>
                 </div>
         </div>

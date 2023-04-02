@@ -2,11 +2,13 @@ import React from 'react';
 import classes from '../header/Header.module.css';
 
 const Header = (props) => {
-   // Функция pressEnter которую ты сказал нужно над ретерном и так над ретерном
+
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
             if (/[a-zа-яё0-9]/i.test(event.currentTarget.value)) {
-                props.setTopic([...props.topic, props.strHeader])
+                props.setTopic([...props.topics, {
+                                topicName: props.strHeader,
+                                tasks: [],}])
                 props.setStrHeader('');
                 event.currentTarget.style.border = 'none';
             }else {
@@ -27,7 +29,7 @@ const Header = (props) => {
                        value={props.strHeader}
                        onChange={(event) => props.setStrHeader(event.currentTarget.value)}
                        onKeyDown={(event) => pressEnter(event)}/>
-                <span className={classes.header__number}>number of tasks: {props.topic.length}</span>
+                <span className={classes.header__number}>number of tasks: {props.topics.length}</span>
             </div>
         </div>
     )

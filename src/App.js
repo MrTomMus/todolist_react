@@ -5,17 +5,17 @@ import { useState } from 'react';
 
 function App() {
 
-  let [topic, setTopic] = useState([]);
+  let [topics, setTopic] = useState([]);
   let [strHeader, setStrHeader] = useState('');
   
   
   return (
     <div className={classes.wrapper}>
-      <Header topic={topic} 
+      <Header topics={topics} 
               setTopic={setTopic}
               strHeader={strHeader}
               setStrHeader={setStrHeader}/>
-      <Content topic={topic}
+      <Content topics={topics}
                setTopic={setTopic}/>
     </div>
     
