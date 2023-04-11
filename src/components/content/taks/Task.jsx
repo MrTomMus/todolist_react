@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "../taks/Task.module.css";
 
 let Task = (props) => {
-    console.log(props)
+    
     let [str, setStr] = useState('');
     
     
@@ -20,8 +20,8 @@ let Task = (props) => {
         }
     }
    
-    // let newTask = props.topics.tasks.map((e, index) => <li key={index}>{e}</li>)
-
+    let newTask = props.tasks.map((e, index) => <li key={index}>{e}</li>)
+    
     return (
         <div>
             <input className={classes.task__input}
@@ -34,7 +34,7 @@ let Task = (props) => {
                        />
                 <div className={classes.task__tasks}>
                     <ol>
-                        {/* {newTask} */}
+                        {newTask}
                     </ol>
                 </div>
         </div>

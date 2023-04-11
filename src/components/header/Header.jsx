@@ -2,13 +2,14 @@ import React from 'react';
 import classes from '../header/Header.module.css';
 
 const Header = (props) => {
-
+    
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
             if (/[a-zа-яё0-9]/i.test(event.currentTarget.value)) {
                 props.setTopic([...props.topics, {
                                 topicName: props.strHeader,
-                                tasks: [],}])
+                                tasks: [],
+                                id: props.topics.length}])
                 props.setStrHeader('');
                 event.currentTarget.style.border = 'none';
             }else {
