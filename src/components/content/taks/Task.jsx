@@ -4,12 +4,14 @@ import classes from "../taks/Task.module.css";
 let Task = (props) => {
     
     let [str, setStr] = useState('');
+    let [isPress, setPress] = useState(true);
     
     
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
-            if (/[a-zа-яё0-9]/i.test(event.currentTarget.value)) {
-                props.setTopic([...props.tasks, str])
+            
+            if (/[a-zа-яё0-9]/i.test(event.currentTarget.value)) {  
+                props.setTopic(props.topics.map(obj => obj.id === props.id ? {...obj, tasks: [...obj.tasks, str]} : obj))    
                 setStr('');
                 event.currentTarget.style.border = 'none';
             }else {
