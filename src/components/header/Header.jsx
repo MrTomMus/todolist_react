@@ -1,5 +1,9 @@
 import React from 'react';
 import classes from '../header/Header.module.css';
+import {Space, Badge, Avatar,  } from 'antd'
+import { FileTextOutlined } from '@ant-design/icons';
+ 
+
 
 
 const Header = (props) => {
@@ -32,7 +36,14 @@ const Header = (props) => {
                        value={props.strHeader}
                        onChange={(event) => props.setStrHeader(event.currentTarget.value)}
                        onKeyDown={(event) => pressEnter(event)}/>
-                <span className={classes.header__number}>number of tasks: {props.topics.length}</span>
+                        <Space direction="vertical">
+                            <Space size="large">
+                                <Badge count={props.topics.length}>
+                                    <Avatar icon={<FileTextOutlined />} shape="square" size="large" />
+                                </Badge>
+                            </Space>
+      
+                        </Space>
             </div>
         </div>
     )
