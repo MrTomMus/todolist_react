@@ -22,7 +22,7 @@ let Task = (props) => {
         }
     }
    
-    let newTask = props.tasks.map((e, index) => <li key={index}>{e}</li>)
+    let newTask = props.tasks.map((e, index) => <li className={classes.task} key={index}>{index+1}. {e} <input type="checkbox" /></li>)
     
     return (
         <div>

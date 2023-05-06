@@ -1,3 +1,16 @@
+.task {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+
+.task:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .task__input {
     width: 200px;
     border: none;
