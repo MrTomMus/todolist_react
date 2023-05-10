@@ -5,6 +5,8 @@ let Task = (props) => {
     
     let [str, setStr] = useState('');
     let [isPress, setPress] = useState(true);
+
+    let [isFlag, setFlag] = useState('true')
     
     
     let pressEnter = (event) => {
@@ -22,7 +24,7 @@ let Task = (props) => {
         }
     }
    
-    let newTask = props.tasks.map((e, index) => <li className={classes.task} key={index}>{index+1}. {e} <input type="checkbox" /></li>)
+    let newTask = props.tasks.map((e, index) => <li  onClick={() => setFlag(!isFlag)} className={`${classes.task} ${isFlag && classes.task_active}`} key={index}>{index+1}. {e} <input checked={isFlag} type="checkbox" /></li>)
     
     return (
         <div>
