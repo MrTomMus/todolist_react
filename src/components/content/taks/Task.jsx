@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import classes from "../taks/Task.module.css";
 
 let Task = (props) => {
-    
+    console.log(props)
     let [str, setStr] = useState('');
-    let [isPress, setPress] = useState(true);
 
-    let [isFlag, setFlag] = useState('true')
-    
-    
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
             
             if (/[a-zа-яё0-9]/i.test(event.currentTarget.value)) {  
-                props.setTopic(props.topics.map(obj => obj.id === props.id ? {...obj, tasks: [...obj.tasks, str]} : obj))    
+                props.setTopic(props.topics.map(obj => obj.id === props.id ? {...obj, tasks: [...obj.tasks, {name: str, id: props.tasks.length, isFlag: false}]} : obj))    
                 setStr('');
                 event.currentTarget.style.border = 'none';
             }else {
@@ -24,7 +20,7 @@ let Task = (props) => {
         }
     }
    
-    let newTask = props.tasks.map((e, index) => <li  onClick={() => setFlag(!isFlag)} className={`${classes.task} ${isFlag && classes.task_active}`} key={index}>{index+1}. {e} <input checked={isFlag} type="checkbox" /></li>)
+    let newTask = props.tasks.map((obj, index) => <li className={`${classes.task} ${obj.isFlag && classes.task_active}`} key={index}>{index+1}. {obj.name} <input checked={obj.isFlag} type="checkbox" /></li>)
     
     return (
         <div>
