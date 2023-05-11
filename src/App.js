@@ -8,7 +8,6 @@ function App() {
   let [topics, setTopic] = useState([]);
   let [strHeader, setStrHeader] = useState('');
   
-  
   return (
     <div className={classes.wrapper}>
       <Header topics={topics} 

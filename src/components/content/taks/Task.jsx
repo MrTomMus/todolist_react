@@ -4,6 +4,7 @@ import classes from "../taks/Task.module.css";
 let Task = (props) => {
     console.log(props)
     let [str, setStr] = useState('');
+    
 
     let pressEnter = (event) => {
         if(event.key === 'Enter'){
@@ -19,9 +20,16 @@ let Task = (props) => {
             
         }
     }
+
+    let changeFlag = (id) => {
+        props.setTopic(props.topics.map(obj => obj.id === props.id ? obj.tasks.map(elem => elem.id === id ? {...elem, isFlag: !elem.isFlag} : elem) : obj))
+    }
    
-    let newTask = props.tasks.map((obj, index) => <li className={`${classes.task} ${obj.isFlag && classes.task_active}`} key={index}>{index+1}. {obj.name} <input checked={obj.isFlag} type="checkbox" /></li>)
-    
+    let newTask = props.tasks.map((obj, index) => <li onClick={() => changeFlag(obj.id)} 
+                                                      className={`${classes.task} ${obj.isFlag && classes.task_active}`} 
+                                                      key={index}>{index+1}. {obj.name} 
+                                                      <input checked={obj.isFlag} type="checkbox" /></li>)
+    console.log(props)
     return (
         <div>
             <input className={classes.task__input}
