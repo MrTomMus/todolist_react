@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "../taks/Task.module.css";
 
 let Task = (props) => {
-    console.log(props)
+    
     let [str, setStr] = useState('');
     
 
@@ -22,7 +22,15 @@ let Task = (props) => {
     }
 
     let changeFlag = (id) => {
-        props.setTopic(props.topics.map(obj => obj.id === props.id ? obj.tasks.map(elem => elem.id === id ? {...elem, isFlag: !elem.isFlag} : elem) : obj))
+        props.setTopic(props.topics.map(obj => {
+            if(obj.id === props.id) {
+                return {
+                    ...obj,
+                    tasks: props.tasks.map(obj => obj.id === id ? {...obj, isFlag: !obj.isFlag}: obj)
+                }
+            }
+            return obj;
+        }))
     }
    
     let newTask = props.tasks.map((obj, index) => <li onClick={() => changeFlag(obj.id)} 
