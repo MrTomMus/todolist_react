@@ -14,7 +14,8 @@ const Header = (props) => {
                 props.setTopic([...props.topics, {
                                 topicName: props.strHeader,
                                 tasks: [],
-                                id: props.topics.length}])
+                                id: props.topics.length,
+                                status: ''}])
                 props.setStrHeader('');
                 event.currentTarget.style.border = 'none';
             }else {

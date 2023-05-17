@@ -37,7 +37,7 @@ let Task = (props) => {
                                                       className={`${classes.task} ${obj.isFlag && classes.task_active}`} 
                                                       key={index}>{index+1}. {obj.name} 
                                                       <input checked={obj.isFlag} type="checkbox" /></li>)
-    console.log(props)
+    console.log('render')
     return (
         <div>
             <input className={classes.task__input}

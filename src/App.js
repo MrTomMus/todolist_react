@@ -7,6 +7,18 @@ function App() {
 
   let [topics, setTopic] = useState([]);
   let [strHeader, setStrHeader] = useState('');
+
+  function setLocalStorage() {
+    localStorage.setItem('state', JSON.stringify(topics));
+  }
+  window.addEventListener('beforeunload', setLocalStorage);
+
+  function getLocalStorage() {
+    if(localStorage.getItem('state')) {
+      setTopic(JSON.parse(localStorage.getItem('state')));
+    }
+  }
+  window.addEventListener('load', getLocalStorage)
   
   return (
     <div className={classes.wrapper}>
